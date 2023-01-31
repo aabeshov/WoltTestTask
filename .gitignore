@@ -1,0 +1,6 @@
+
+#Virtual env
+venv/
+
+# Local Storage
+db.sqlite3
