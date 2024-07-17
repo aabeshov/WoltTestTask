@@ -1,3 +1,4 @@
+
 import json
 from math import ceil
 from django.shortcuts import render
@@ -13,7 +14,7 @@ from datetime import datetime
 class calc_delivery_fee(APIView):
     # Using GET method, can be cached, less safe
     def get(self, request):
-        serializer = orderDetailSerializer(data=request.data)
+        serializer = orderDetailSerializer(data=request.query_params)
         if serializer.is_valid():
             total_fee = 0
             Delivery = Order_detail(**serializer.data)
@@ -52,7 +53,7 @@ class calc_delivery_fee(APIView):
 
     # Using POST method, can't be cached, more safe
     def post(self, request):
-        serializer = orderDetailSerializer(data=request.data)
+        serializer = orderDetailSerializer(data=request.query_params)
         if serializer.is_valid():
             total_fee = 0
             Delivery = Order_detail(**serializer.data)
