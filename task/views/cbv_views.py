@@ -23,13 +23,13 @@ class calc_delivery_fee(APIView):
                 return Response({"delivery_fee": 0}, status=status.HTTP_200_OK)
             # Cart Value Condition
             if Delivery.cart_value < 1000:
-                total_fee += 10 - (Delivery.cart_value/100)
+                total_fee += 10 - (Delivery.cart_value / 100)
                 print(total_fee)
             # Delivery Distance Conditions
             if Delivery.delivery_distance <= 500:
                 total_fee += 1
             else:
-                total_fee += (ceil(Delivery.delivery_distance / 500) - 1)
+                total_fee += (ceil(Delivery.delivery_distance / 500)) * 100
             # Total items Conditions
             if Delivery.number_of_items >= 5:
                 total_fee += (Delivery.number_of_items - 4) * 50
