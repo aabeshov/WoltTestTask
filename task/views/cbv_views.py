@@ -1,3 +1,4 @@
+
 import json
 from math import ceil
 from django.shortcuts import render
@@ -6,7 +7,7 @@ from rest_framework.views import APIView
 from task.serializers.order_serializers import orderDetailSerializer
 from rest_framework.response import Response
 from task.models import Order_detail
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 # Class Based View
