@@ -1,0 +1,13 @@
+--- task/urls.py
++++ task/urls.py
+@@ -1,7 +1,8 @@
++
+ from django.urls import path
+ 
+-from task.views import calc_delivery_fee
++from task.views import CalcDeliveryFee
+ 
+ urlpatterns = [
+     path('', calc_delivery_fee.as_view()),
+-]
++]
